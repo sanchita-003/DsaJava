@@ -2,16 +2,18 @@ import java.util.Scanner;
 public class StudentMarks {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Name of Student!!");
-        String name = sc.nextLine();
-        System.out.println("Enter the marks of \nEnglish\nHindi\nMathematics\nHistory\nGeography\nin the same order!!");
-        int eMarks = sc.nextInt();
-        int hMarks = sc.nextInt();
-        int mMarks = sc.nextInt();
-        int hisMarks = sc.nextInt();
-        int gMarks = sc.nextInt();
 
-        int total =(eMarks+hMarks+mMarks+hisMarks+gMarks);
+        System.out.println("Enter the marks of \nEnglish\nHindi\nMathematics\nHistory\nGeography\nin the same order!!");
+       
+        int []marks = new int[5];
+        for(int i=0;i<5;i++){
+          marks[i]=sc.nextInt();
+        }
+        int total=0;
+        for(int i=0;i<5;i++){
+          total+=marks[i];
+        }
+        
         double percentage = (total/500.00)*100.00;
 
         if(percentage>=90){
@@ -35,7 +37,15 @@ public class StudentMarks {
         else{
              System.out.println("Better luck next Time!! \nYou are Failed with .....");
         }
+       
+        int highest = marks[0];
+        for(int i =0;i<5;i++){
+          if(marks[i]>highest){
+               highest=marks[i];
+          }
+        }
+        System.out.println("Your highest marks is:"+highest);
         System.out.println("The total score "+total);
-        System.out.println("And The percentage "+percentage+"%");
+        System.out.println("And The percentage is "+percentage+"%");
     }
 }
